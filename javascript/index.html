@@ -2,6 +2,7 @@
 <html>
 <meta charset="UTF-8">
 <head>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<title>Reddit Wallpapers</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -9,8 +10,15 @@
 	</head>
 
 	<body>
-		<div id="div1"><img class="center fit" id="img" src="http://i.imgur.com/nxFVO.jpg" width="500" height="500"></div>
-		<div><p>Pick a subreddit: <input type="text" name="subreddit"></p></div>
-		<button  id="getsubreddit">Get random Image from Subreddit</button>
+		<style>
+		#getsubreddit{
+			margin: 10px;
+		}
+		</style>
+		<h1 align="center"><b>Wallpapers</b></h1>
+		<div class="w3-container" id="div1">
+			<img class="center fit w3-card-4" id="img" src="http://i.imgur.com/nxFVO.jpg" width="500" height="500"></div>
+		<input type="text" id="subreddit" placeholder="Subreddit">
+		<button  id="getsubreddit">Get Random Image</button>
 	</body>
 </html>
