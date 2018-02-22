@@ -1,15 +1,15 @@
 
-const snoowrap = require('C:/Users/Kevin/AppData/Roaming/npm/node_modules/snoowrap');
+const snoowrap = require('snoowrap');
 var express = require('express');
-var bodyParser = require('C:/Users/Kevin/AppData/Roaming/npm/node_modules/body-parser');
 var app = express();
+const private = require("./privateinfo.js");
 
 const r = new snoowrap({
-	userAgent: '',
-	clientId: '',
-	clientSecret: '',
-	username: '',
-	password: ''
+	userAgent: 'Random Image catching bot',
+	clientId: `${private.redditId}`,
+	clientSecret: `${private.redditSecret}`,
+	username: `${private.redditUserName}`,
+	password: `${private.redditPassword}`
 
 });
 
@@ -28,16 +28,16 @@ var subreddit = "wallpaper";
 //Problem, you cant change a var while the server is up.
 
 
+app.use(express.static('static'));
+
 
 
 app.use(function(req, res, next) {
-	console.log("Header");
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 
 
-  console.log("Header sent!");
 
 });
 
@@ -61,16 +61,17 @@ app.get('/', function (req, res) {
 
 		} else{
 			res.send("http://leafyisbeefy.neocities.org/ministry-click-me-button.jpg");
-			console.log("Wrong format");
 			console.log(post.url);
 		}
 
 		});
-	console.log("Got request");
-	//res.end();
 
 
 })
+
+app.get("/index", function(req, res){
+	res.sendFile(__dirname + "/index.html");
+});
 
 var server = app.listen(8081, function () {
    var host = server.address().address
