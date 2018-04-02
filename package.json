@@ -1,0 +1,26 @@
+{
+  "name": "randomimagecatcher",
+  "version": "0.0.1",
+  "description": "Image Catching ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jarmahent/RandomImageCatch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jarmahent/RandomImageCatch/issues"
+  },
+  "homepage": "https://github.com/Jarmahent/RandomImageCatch#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "npm": "^5.8.0",
+    "snoowrap": "^1.15.2"
+  }
+}

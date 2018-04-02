@@ -6,7 +6,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<title>Reddit Wallpapers</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
-	<script src="../request2.js"></script>
 	</head>
 
 	<body>
@@ -20,5 +19,28 @@
 			<img class="center fit w3-card-4" id="img" src="http://i.imgur.com/nxFVO.jpg" width="500" height="500"></div>
 		<input type="text" id="subreddit" placeholder="Subreddit">
 		<button  id="getsubreddit">Get Random Image</button>
+
+		<script>
+		document.getElementById('getsubreddit').addEventListener('click', function(e) {
+			e.preventDefault();
+			var request = new XMLHttpRequest();
+			var subreddit = document.getElementById("subreddit").value;
+			request.open('POST', '/image', true);
+		//  request.setRequestHeader('X-CSRFToken', cookies['csrftoken']);
+			//request.setRequestHeader('Content-Type', 'application/json');
+			var data = JSON.stringify({"test": subreddit});
+			console.log(data);
+			request.send(data);
+			request.onreadystatechange = function(){
+				if(request.status == 200){
+					console.log("Success");
+				}
+				else{
+					console.log("Failed");
+				}
+			}
+	});
+		</script>
+
 	</body>
 </html>
