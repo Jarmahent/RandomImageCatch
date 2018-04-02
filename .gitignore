@@ -1,3 +1,4 @@
 tokens.env
 /node_modules
 private_info.js
+.env

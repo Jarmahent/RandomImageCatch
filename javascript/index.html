@@ -25,18 +25,17 @@
 			e.preventDefault();
 			var request = new XMLHttpRequest();
 			var subreddit = document.getElementById("subreddit").value;
-			request.open('POST', '/image', true);
-		//  request.setRequestHeader('X-CSRFToken', cookies['csrftoken']);
-			//request.setRequestHeader('Content-Type', 'application/json');
-			var data = JSON.stringify({"test": subreddit});
-			console.log(data);
+			var data = JSON.stringify({"subreddit": subreddit});
+
+			request.open('POST', '/randomImage', true);
+			request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 			request.send(data);
 			request.onreadystatechange = function(){
-				if(request.status == 200){
-					console.log("Success");
-				}
-				else{
-					console.log("Failed");
+				if(request.readyState === 4 && request.status === 200){
+					let url = JSON.parse(request.responseText)
+					console.log(url);
+					document.getElementById('img').src = url.url
+
 				}
 			}
 	});
